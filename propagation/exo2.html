@@ -1,0 +1,18 @@
+<!-- Mets un seul gestionnaire sur le <ul>.
+Si on clique sur le bouton "Supprimer", enlève le <li> correspondant.
+Si on clique ailleurs sur le <li>, affiche "Élément sélectionné" dans la console.
+(Astuce : utilise event.target et event.stopPropagation() si nécessaire !) -->
+<ul id="maListe">
+  <li>Item 1 <button class="supprimer">Supprimer</button></li>
+  <li>Item 2 <button class="supprimer">Supprimer</button></li>
+</ul>
+<script>
+    document.getElementById("maListe").addEventListener("click", () => {
+        if (event.target.classList.contains("supprimer")) {
+            event.target.closest("li").remove();
+        }
+        else {
+            console.log("Element séléctionner");
+        }
+    });
+</script>

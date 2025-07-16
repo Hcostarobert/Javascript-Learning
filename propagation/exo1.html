@@ -1,0 +1,18 @@
+<!-- En JavaScript, lorsque tu cliques sur "Ajouter", un nouvel <li> est ajouté à la liste avec un texte comme "Élément 1", "Élément 2", etc.
+Place un seul gestionnaire de clic sur le <ul> (pas sur les <li>).
+Quand tu cliques sur un <li>, affiche dans la console le texte de l’élément.
+Explique pourquoi les nouveaux <li> réagissent automatiquement sans avoir besoin d’un gestionnaire individuel. -->
+
+<ul id="maListe">Coucou</ul>
+<button id="ajouter">Ajouter un élément</button>
+
+<script>
+    document.getElementById("ajouter").addEventListener("click", () => {
+        const li = document.createElement("li");
+        li.textContent = "Element " + (document.querySelectorAll("#maListe li").length+1);
+        document.getElementById("maListe").appendChild(li);
+    });
+    document.getElementById("maListe").addEventListener("click", () => {
+        console.log(event.target.textContent);
+    })
+</script>

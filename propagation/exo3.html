@@ -1,0 +1,24 @@
+<!-- Ajoute un gestionnaire d’événement click sur le <div id="parent"> en mode capture ({ capture: true }), qui affiche "Parent (capture)" dans la console.
+Ajoute un gestionnaire d’événement click sur la <section id="enfant"> (phase par défaut/bubbling), qui affiche "Enfant" dans la console.
+Ajoute un gestionnaire d’événement click sur le <button id="bouton"> (phase par défaut/bubbling), qui affiche "Bouton" dans la console et utilise event.stopPropagation(). -->
+
+<div id="parent" style="padding: 20px; background: #e0e0e0;">
+  Parent
+  <section id="enfant" style="padding: 20px; background: #b0b0e0;">
+    Enfant
+    <button id="bouton">Clique-moi</button>
+  </section>
+</div>
+
+<script>
+    document.getElementById("parent").addEventListener("click", () => {
+        console.log("Parent");
+    },{capture : true});
+    document.getElementById("enfant").addEventListener("click", () => {
+        console.log("Enfant");
+    });
+    document.getElementById("bouton").addEventListener("click", () => {
+        console.log("Bouton");
+        event.stopPropagation();
+    });
+</script>;

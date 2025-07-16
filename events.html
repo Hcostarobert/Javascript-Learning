@@ -1,0 +1,24 @@
+<section id="section">
+  <div id="div">
+    <button id="button">Clique-moi</button>
+    <button id="stop_btn">Stop la propagation</button>
+</div>
+</section>
+<script>
+    document.getElementById("section").addEventListener("click", () => {
+        console.log("Section");
+    });
+    document.getElementById("div").addEventListener("click", () => {
+        console.log("Div");
+    });
+    document.getElementById("button").addEventListener("click", () => {
+        console.log("Button");
+    });
+    document.getElementById("section").addEventListener("click", () => {
+        console.log("Section (capture)");
+    }, {capture:true});
+    document.getElementById("stop_btn").addEventListener("click", () => {
+        console.log("Stop !!!")
+        event.stopPropagation();
+    })
+</script>
